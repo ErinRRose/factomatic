@@ -10,10 +10,11 @@ class Fact extends React.Component {
     render() {
         return(
             <div>
+                <br/>
                 {this.props?.fact?.text}
-                <div>{this.props?.truthiness}</div>
-                <VoteButton text="yes" fact_id={this.props?.fact?.id} vote={true} />
-                <VoteButton text="no" fact_id={this.props?.fact?.id} vote={false} />
+                <div><h4>{this.props?.truthiness}</h4></div>
+                <VoteButton text="True" fact_id={this.props?.fact?.id} vote={true} />
+                <VoteButton text="False" fact_id={this.props?.fact?.id} vote={false} />
                 
             </div>
         )
