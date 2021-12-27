@@ -8,20 +8,17 @@ export const fetchFacts = () => {
         })
         .then((randomFact) => {
             dispatch({ type: "ADD_FACT", fact: randomFact });
-            return randomFact;
+            fetch(`http://localhost:3001/facts/${randomFact.id}`)
+            .then((resp) => {
+        
+                try { return resp.json(); }
+                catch { console.error(`bad response: ${resp.text}`)};
+            })
+            .then((truthy) => {
+                truthy = truthy[0];
+                let truthiness =  truthy.total ? `${Math.round((truthy.truthy / truthy.total) * 100)}% Truthy` : "No Data" 
+                dispatch({ type: "ADD_TRUTHY", truthiness: truthiness });
+             })
         })
-        .then((randomFact) => {
-           //call api to get truthiness
-            return {total:1,truthy:1};
-        })
-        // .then((resp) => {
-        //     try { return resp.json(); }
-        //     catch { console.error(`bad response: ${resp.text}`)};
-        // })
-        .then((truthy) => {
-            let truthiness = `69%`; // truthy.truthy / truthy.total (todo: remember to handle 0) repsponse
-            dispatch({ type: "ADD_TRUTHY", truthiness: truthiness });
-         })
-
     };
 };
