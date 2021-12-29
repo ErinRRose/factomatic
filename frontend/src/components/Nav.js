@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHouse, faQuestion, faBook, faBriefcaseClock } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faQuestion, faBook, } from '@fortawesome/free-solid-svg-icons';
 
 
 library.add(faHouse, faQuestion, faBook);
